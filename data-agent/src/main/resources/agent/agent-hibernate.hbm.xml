@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+  "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+  "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.sap.data.db.pojo">
+
+    <class entity-name="EventPojo" name="EventPojo" table="E0000_EVENT">
+        <id name="EVENT_ID" type="java.lang.Integer">
+            <column name="EVENT_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="EVENT_NUMBER" type="java.lang.String">
+            <column name="EVENT_NUMBER" not-null="true" length="10" />
+        </property>
+        <property name="EVENT_NAME" type="java.lang.String">
+            <column name="EVENT_NAME" not-null="true" length="50" />
+        </property>
+        <property name="FUNCNAME" type="java.lang.String">
+            <column name="FUNCNAME" not-null="true" length="50" />
+        </property>
+          <property name="EVENT_DES" type="java.lang.String">
+            <column name="EVENT_DES" length="50" />
+        </property>
+          <property name="DELETIONFLAG" type="java.lang.String">
+            <column name="DELETIONFLAG" length="1" />
+        </property>
+          <property name="CHANGED_BY" type="java.lang.String">
+            <column name="CHANGED_BY" not-null="true" length="50" />
+        </property>
+         <property name="COMMENTS" type="java.lang.String">
+            <column name="COMMENTS" length="250" />
+        </property>
+       	 <property name="LAST_CHANGE_TIME" type="java.util.Date">
+            <column name="LAST_CHANGE_TIME" not-null="true" length="50" />
+        </property>
+    </class>
+    
+    <class entity-name="BapiFUPARAREFPojo" name="BapiFUPARAREFPojo" table="E0000_FUPARAREF"> 
+        <composite-id name="id" class="BapiFUPARAREFId"> 
+            <key-property name="FUNCNAME" type="java.lang.String"> 
+                <column name="FUNCNAME" length="30"/> 
+            </key-property>  
+            <key-property name="R3STATE" type="java.lang.String"> 
+                <column name="R3STATE" length="1"/> 
+            </key-property>  
+            <key-property name="PARAMETER" type="java.lang.String"> 
+                <column name="PARAMETER" length="30"/> 
+            </key-property>  
+            <key-property name="PARAMTYPE" type="java.lang.String"> 
+                <column name="PARAMTYPE" length="1"/> 
+            </key-property> 
+        </composite-id>  
+        <property name="STRUCTURE" type="java.lang.String"> 
+            <column name="STRUCTURE" length="132"/> 
+        </property>  
+        <property name="DEFAULTVAL" type="java.lang.String"> 
+            <column name="DEFAULTVAL" length="21"/> 
+        </property>  
+        <property name="REFERENCE" type="java.lang.String"> 
+            <column name="REFERENCE" length="1"/> 
+        </property>  
+        <property name="PPOSITION" type="java.lang.Integer"> 
+            <column name="PPOSITION" /> 
+        </property>  
+        <property name="OPTIONAL" type="java.lang.String"> 
+            <column name="OPTIONAL" length="1"/> 
+        </property>  
+        <property name="TYPE" type="java.lang.String"> 
+            <column name="TYPE" length="1"/> 
+        </property>  
+        <property name="CLASS" type="java.lang.String"> 
+            <column name="CLASS" length="1"/> 
+        </property>  
+        <property name="REF_CLASS" type="java.lang.String"> 
+            <column name="REF_CLASS" length="1"/> 
+        </property>  
+        <property name="LINE_OF" type="java.lang.String"> 
+            <column name="LINE_OF" length="1"/> 
+        </property>  
+        <property name="TABLE_OF" type="java.lang.String"> 
+            <column name="TABLE_OF" length="1"/> 
+        </property>  
+        <property name="RESFLAG1" type="java.lang.String"> 
+            <column name="RESFLAG1" length="1"/> 
+        </property>  
+        <property name="RESFLAG2" type="java.lang.String"> 
+            <column name="RESFLAG2" length="1" default="q"/> 
+        </property>  
+        <property name="RESFLAG3" type="java.lang.String"> 
+            <column name="RESFLAG3" length="1"/> 
+        </property>  
+        <property name="RESFLAG4" type="java.lang.String"> 
+            <column name="RESFLAG4" length="1"/> 
+        </property>  
+        <property name="RESFLAG5" type="java.lang.String"> 
+            <column name="RESFLAG5" length="1"/> 
+        </property> 
+    </class>  
+    
+    <class entity-name="BapiDD03LPojo" name="BapiDD03LPojo" table="E0000_DD03L"> 
+        <composite-id name="id" class="BapiDD03LId"> 
+            <key-property name="TABNAME" type="java.lang.String"> 
+                <column name="TABNAME" length="30"/> 
+            </key-property>  
+            <key-property name="FIELDNAME" type="java.lang.String"> 
+                <column name="FIELDNAME" length="30"/> 
+            </key-property>  
+            <key-property name="AS4LOCAL" type="java.lang.String"> 
+                <column name="AS4LOCAL" length="1"/> 
+            </key-property>  
+            <key-property name="AS4VERS" type="java.lang.String"> 
+                <column name="AS4VERS" length="4"/> 
+            </key-property>  
+            <key-property name="POSITION" type="java.lang.Integer"> 
+                <column name="POSITION"/> 
+            </key-property> 
+        </composite-id>  
+        <one-to-one name="dd03ldm" entity-name="BapiDD03LDMPojo" />
+        <property name="KEYFLAG" type="java.lang.String"> 
+            <column name="KEYFLAG" length="1"/> 
+        </property>  
+        <property name="MANDATORY" type="java.lang.String"> 
+            <column name="MANDATORY" length="1"/> 
+        </property>  
+        <property name="ROLLNAME" type="java.lang.String"> 
+            <column name="ROLLNAME" length="30"/> 
+        </property>  
+        <property name="CHECKTABLE" type="java.lang.String"> 
+            <column name="CHECKTABLE" length="30"/> 
+        </property>  
+        <property name="ADMINFIELD" type="java.lang.String"> 
+            <column name="ADMINFIELD" length="1"/> 
+        </property>  
+        <property name="INTTYPE" type="java.lang.String"> 
+            <column name="INTTYPE" length="1"/> 
+        </property>  
+        <property name="INTLEN" type="java.lang.Integer"> 
+            <column name="INTLEN" /> 
+        </property>  
+        <property name="REFTABLE" type="java.lang.String"> 
+            <column name="REFTABLE" length="30"/> 
+        </property>  
+        <property name="PRECFIELD" type="java.lang.String"> 
+            <column name="PRECFIELD" length="30"/> 
+        </property>  
+        <property name="REFFIELD" type="java.lang.String"> 
+            <column name="REFFIELD" length="30"/> 
+        </property>  
+        <property name="CONROUT" type="java.lang.String"> 
+            <column name="CONROUT" length="10"/> 
+        </property>  
+        <property name="NOTNULL" type="java.lang.String"> 
+            <column name="NOTNULL" length="1"/> 
+        </property>  
+        <property name="DATATYPE" type="java.lang.String"> 
+            <column name="DATATYPE" length="4"/> 
+        </property>  
+        <property name="LENG" type="java.lang.Integer"> 
+            <column name="LENG" /> 
+        </property>  
+        <property name="DECIMALS" type="java.lang.Integer"> 
+            <column name="DECIMALS" /> 
+        </property>  
+        <property name="DOMNAME" type="java.lang.String"> 
+            <column name="DOMNAME" length="30"/> 
+        </property>  
+        <property name="SHLPORIGIN" type="java.lang.String"> 
+            <column name="SHLPORIGIN" length="1"/> 
+        </property>  
+        <property name="TABLETYPE" type="java.lang.String"> 
+            <column name="TABLETYPE" length="1"/> 
+        </property>  
+        <property name="DEPTH" type="java.lang.Integer"> 
+            <column name="DEPTH" /> 
+        </property>  
+        <property name="COMPTYPE" type="java.lang.String"> 
+            <column name="COMPTYPE" length="1"/> 
+        </property>  
+        <property name="REFTYPE" type="java.lang.String"> 
+            <column name="REFTYPE" length="1"/> 
+        </property>  
+        <property name="LANGUFLAG" type="java.lang.String"> 
+            <column name="LANGUFLAG" length="1"/> 
+        </property>  
+        <property name="DBPOSITION" type="java.lang.Integer"> 
+            <column name="DBPOSITION" /> 
+        </property>  
+        <property name="ANONYMOUS" type="java.lang.String"> 
+            <column name="ANONYMOUS" length="1"/> 
+        </property>  
+        <property name="OUTPUTSTYLE" type="java.lang.Integer"> 
+            <column name="OUTPUTSTYLE" /> 
+        </property> 
+    </class>  
+    
+    <class entity-name="BapiDD03LDMPojo" name="BapiDD03LDMPojo" table="E0000_DD03L_DM"> 
+         <composite-id name="id" class="BapiDD03LId"> 
+            <key-property name="TABNAME" type="java.lang.String"> 
+                <column name="TABNAME" length="30"/> 
+            </key-property>  
+            <key-property name="FIELDNAME" type="java.lang.String"> 
+                <column name="FIELDNAME" length="30"/> 
+            </key-property>  
+            <key-property name="AS4LOCAL" type="java.lang.String"> 
+                <column name="AS4LOCAL" length="1"/> 
+            </key-property>  
+            <key-property name="AS4VERS" type="java.lang.String"> 
+                <column name="AS4VERS" length="4"/> 
+            </key-property>  
+            <key-property name="POSITION" type="java.lang.Integer"> 
+                <column name="POSITION"/> 
+            </key-property> 
+        </composite-id>  
+        <property name="DM_KEYFLAG" type="java.lang.String"> 
+            <column name="DM_KEYFLAG" length="1"/> 
+        </property>  
+        <property name="DM_USED_FLAG" type="java.lang.String"> 
+            <column name="DM_USED_FLAG" length="1"/> 
+        </property>
+        <property name="DM_EXCLUDE_FLAG" type="java.lang.String"> 
+            <column name="DM_EXCLUDE_FLAG" length="1"/> 
+        </property>
+        <property name="DM_FB_FLAG" type="java.lang.String"> 
+            <column name="DM_FB_FLAG" length="1"/> 
+        </property>
+        <property name="DM_SEQ_NO" type="java.lang.String"> 
+            <column name="DM_SEQ_NO" length="6"/> 
+        </property>
+        <property name="DM_CHANGED_BY" type="java.lang.String"> 
+            <column name="DM_CHANGED_BY" length="30"/> 
+        </property>
+        <property name="DM_LAST_CHANGE_TIME" type="java.util.Date"> 
+            <column name="DM_LAST_CHANGE_TIME" /> 
+        </property>
+        <property name="DM_COMMENTS" type="java.lang.String"> 
+            <column name="DM_COMMENTS" length="30"/> 
+        </property>
+    </class> 
+    
+    <class entity-name="BapiDD04TPojo" name="BapiDD04TPojo" table="E0000_DD04T"> 
+        <composite-id name="id" class="BapiDD04TId"> 
+            <key-property name="ROLLNAME" type="java.lang.String"> 
+                <column name="ROLLNAME" length="30"/> 
+            </key-property>  
+            <key-property name="DDLANGUAGE" type="java.lang.String"> 
+                <column name="DDLANGUAGE" length="1"/> 
+            </key-property>  
+            <key-property name="AS4LOCAL" type="java.lang.String"> 
+                <column name="AS4LOCAL" length="1"/> 
+            </key-property>  
+            <key-property name="AS4VERS" type="java.lang.String"> 
+                <column name="AS4VERS" /> 
+            </key-property> 
+        </composite-id>  
+        <property name="DDTEXT" type="java.lang.String"> 
+            <column name="DDTEXT" length="60"/> 
+        </property>  
+        <property name="REPTEXT" type="java.lang.String"> 
+            <column name="REPTEXT" length="55"/> 
+        </property>  
+        <property name="SCRTEXT_S" type="java.lang.String"> 
+            <column name="SCRTEXT_S" length="10"/> 
+        </property>  
+        <property name="SCRTEXT_M" type="java.lang.String"> 
+            <column name="SCRTEXT_M" length="20"/> 
+        </property>  
+        <property name="SCRTEXT_L" type="java.lang.String"> 
+            <column name="SCRTEXT_L" length="40"/> 
+        </property> 
+    </class> 
+	
+	<class entity-name="FieldConvertPojo" name="FieldConvertPojo" table="E0000_DD03L_DM_FC"> 
+        <id name="FIELDNAME" type="java.lang.String">
+            <column name="FIELDNAME" length="30"/>
+        </id>
+        <property name="DM_FIELDNAME" type="java.lang.String"> 
+            <column name="DM_FIELDNAME" length="60" not-null="true"/> 
+        </property>  
+        <property name="DM_CHANGED_BY" type="java.lang.String"> 
+            <column name="DM_CHANGED_BY" length="30"/> 
+        </property>  
+        <property name="DM_LAST_CHANGE_TIME" type="java.util.Date"> 
+            <column name="DM_LAST_CHANGE_TIME"/> 
+        </property>  
+        <property name="DM_COMMENTS" type="java.lang.String"> 
+            <column name="DM_COMMENTS" length="30"/> 
+        </property> 
+    </class> 
+    
+</hibernate-mapping>

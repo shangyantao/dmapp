@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<agent id="40288b8147139de40147139ef4c50000">
+   <cmyName>sap</cmyName>
+   <serverUrl>http://10.59.154.191:8080/data-app/</serverUrl>
+   <agentDes>Server APP</agentDes>
+   <comments></comments>
+   <user id="1">
+      <loginName>admin</loginName>
+      <password>admin</password>
+   </user>
+</agent>

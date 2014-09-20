@@ -1,0 +1,11 @@
+#
+#Thu Jul 24 11:32:00 CST 2014
+jco.destination.pool_capacity=3
+jco.client.lang=EN
+jco.client.ashost=10.66.9.27
+jco.client.user=C5178395
+jco.destination.peak_limit=200
+jco.client.sysnr=05
+jco.client.passwd=C5178395
+jco.client.client=550
+jco.client.codepage=8400
