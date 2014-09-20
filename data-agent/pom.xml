@@ -4,7 +4,7 @@
     <groupId>com.sap.data</groupId>
     <artifactId>data-project</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <relativePath>../../data-project/</relativePath>
+    <relativePath>../../dmapp/</relativePath>
   </parent>
   <groupId>com.sap.dm</groupId>
   <artifactId>data-agent</artifactId>
